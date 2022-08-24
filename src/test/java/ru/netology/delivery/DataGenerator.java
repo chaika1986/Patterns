@@ -11,7 +11,7 @@ import java.util.Locale;
 public class DataGenerator {
 
 
-    protected DataGenerator() {
+    private DataGenerator() {
     }
 
 
@@ -19,13 +19,6 @@ public class DataGenerator {
         return LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
-    String planningDate = generateDate(3);
-
-    public static String newGenerateDate(int days) {
-        return LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-    }
-
-    String newDate = newGenerateDate(5);
 
     public static String generateCity(String locale) {
         Faker faker = new Faker(new Locale("ru"));
@@ -34,25 +27,18 @@ public class DataGenerator {
 
     }
 
-    String city = generateCity("ru");
-
 
     public static String generateName(String locale) {
         Faker faker = new Faker(new Locale("ru"));
-
         String name = faker.name().fullName();
         return name;
     }
-
-    String name = generateName("ru");
 
     public static String generatePhone(String locale) {
         Faker faker = new Faker(new Locale("ru"));
         String phone = faker.phoneNumber().phoneNumber();
         return phone;
     }
-
-    String phone = generatePhone("ru");
 
     public static class Order {
         private Order() {
